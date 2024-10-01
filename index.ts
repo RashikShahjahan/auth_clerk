@@ -9,11 +9,11 @@ const prisma = new PrismaClient();
 const express = require('express');
 
 
-const app = express()
-app.use(cors())
-app.use(express.json())
-app.use(clerkMiddleware())
-app.use(identifyUserMiddleware)
+const app = express();
+app.use(cors());
+app.use(express.json());
+app.use(clerkMiddleware());
+app.use(identifyUserMiddleware);
 
 async function identifyUserMiddleware(req: Request, res: Response, next: NextFunction) {
     const { userId } = getAuth(req);
@@ -31,8 +31,8 @@ async function identifyUserMiddleware(req: Request, res: Response, next: NextFun
                 name: clerkUser.username,
                 clerkId: userId
             }
-        })
-    }
+        });
+    };
 
     req.user = user;
     next();
@@ -55,7 +55,7 @@ app.post('/changeName', async (req:Request, res:Response) => {
     data: {
         name: newUsername,
     }
-  })
+  });
 
   return res.json({ user });
 });

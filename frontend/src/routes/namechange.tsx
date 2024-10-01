@@ -24,7 +24,7 @@ const NameChangePage: React.FC = () => {
                     <input value = {username} onChange={
                         (e)=>setUsername(e.target.value)
                         }>                           
-                        </input>
+                    </input>
                     <button type="submit" >Change Name</button>
                 </form>
             </div>
